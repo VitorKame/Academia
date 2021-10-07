@@ -1,0 +1,29 @@
+CREATE TABLE Aluno(
+NomeAluno VARCHAR(100) NOT NULL,
+EmailAluno VARCHAR(100) NOT NULL,
+CpfAluno VARCHAR(100) NOT NULL PRIMARY KEY,
+Matricula VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE Instrutor(
+InstrutorId INT(4,0) PRIMARY KEY NOT NULL,
+NomeInstrutor VARCHAR(255) NOT NULL,
+EspecialidadeInstrutor VARCHAR(255), NOT NULL
+PeriodoInstrutor VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Modalidade(
+ModalidadeId INT(4,0) PRIMARY KEY NOT NULL,
+NomeModalidade VARCHAR(255) NOT NULL,
+InstrutorId INT (4, 0),
+FOREIGN KEY(InstrutorId) REFERENCES Instrutor(InstrutorId)
+);
+
+CREATE TABLE AULA(
+AulaId INT(4,0) PRIMARY KEY NOT NULL,
+QuantidadeAula INT(4,0) NOT NULL,
+DiaAula VARHCAR(100) NOT NULL
+ModalidadeId INT(4,0),
+FOREIGN KEY(ModalidadeId) REFERENCES Modalidade(ModalidadeId)
+);
