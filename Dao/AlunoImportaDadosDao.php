@@ -3,8 +3,8 @@
 $erro = array();
 if ($_FILES) {
   $c = mysqli_connect("localhost", "root", "", "academia");
-  $ps = mysqli_prepare($c, "INSERT INTO modalidade VALUES(?,?,?)");
-  mysqli_stmt_bind_param($ps, "iss", $ID, $NM, $VL);
+  $ps = mysqli_prepare($c, "INSERT INTO aluno VALUES(?,?,?,?)");
+  mysqli_stmt_bind_param($ps, "issss", $MT, $NM, $EM, $CPF, $PID);
 
   $status = move_uploaded_file($_FILES["arq1"]["tmp_name"], "../arquivo/" . $_FILES["arq1"]["name"]);
 
@@ -14,9 +14,12 @@ if ($_FILES) {
       $lin = fgetcsv($a, 100, ";");
       $lin = fgetcsv($a, 100, ";");
       while ($lin != null) {
-        $ID = $lin[0];
+        $MT = $lin[0];
         $NM = $lin[1];
-        $VL = $lin[2];
+        $EM = $lin[2];
+        $CPF = $lin[3];
+        $PID = $lin[4];
+
         if (!mysqli_stmt_execute($ps)) {
           $erro[count($erro)] = "Linha ID={$lin[0]} não inserida";
         }

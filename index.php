@@ -7,7 +7,7 @@
     <!-- 1a coluna da linha correspondendo a 4 colunas unitárias do grid. sm para configuração do grid para visualização em dispositivos pequenos (sm = small, >= 576px). Caso o dispositivo tenha largura de tela menor que 576px, as colunas deixam de ser colunas e passam a ser empilhadas umas sobre as outras. -->
     <div class="col-sm-4">
     <h3>Teste</h3>
-      <h3>Links Úteis</h3>
+      <h3>Links Úteis - teste clone</h3>
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <a class="nav-link active" href="https://www.w3schools.com/" target="_blank">w3schools</a>
