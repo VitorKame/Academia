@@ -1,38 +1,29 @@
 <?php
-namespace Models; // agrupamento de classes (caminho)
+namespace Models;
 
-// Classe (ou Tipo) de Objeto
-// obs.: Pessoa implementa a interface Idados, significando que implementa todos os métodos definidos pela interface.
 class Modalidade implements Idados{
-	// Propriedades
-	protected $id;
-	protected $nome;
-	protected $telefone;
-	// obs.: propriedades protected são acessíveis por subclasses (extend)
-
-	// Método construtor.
-	public function __construct($id,$nome,$telefone){
-		$this->id=$id;
-		$this->nome=$nome;
-		$this->telefone=$telefone;
+	
+	protected $id_modalidade;
+	protected $nm_modalidade;
+	protected $qt_aulas_modalidade;
+	
+	public function __construct($id_modalidade,$nm_modalidade,$qt_aulas_modalidade){
+		$this->id_modalidade=$id_modalidade;
+		$this->nm_modalidade=$nm_modalidade;
+		$this->qt_aulas_modalidade=$qt_aulas_modalidade;
 	}
-
-	// Método obrigatório pois é definido na interface
+	
 	public function toString(){
-		return $this->id.' '.$this->nome.' '.$this->telefone;
+		return $this->id_modalidade.' '.$this->nm_modalidade.' '.$this->qt_aulas_modalidade;
 	}
 
-	// Método obrigatório pois é definido na interface
 	public function toJson() {
-		return json_encode(['id'=>$this->id,'nome'=>$this->nome,'telefone'=>$this->telefone]);
+		return json_encode(['id_modalidade'=>$this->id_modalidade,'nm_modalidade'=>$this->nm_modalidade,'qt_aulas_modalidade'=>$this->qt_aulas_modalidade]);
 	}
 
-	// Métodos estáticos (static) são chamados sem instanciar objetos. Utiliza-se o nome da classe seguido de quatro pontos. Exemplo a seguir.
-	// $jp = Pessoa::toJsonEstatico(20,'Maria','2222');
-	public static function toJsonEstatico ($id,$nome,$telefone) {
-		return json_encode(['id'=>$id,'nome'=>$nome,'telefone'=>$telefone]);
+	public static function toJsonEstatico ($id_modalidade,$nm_modalidade,$qt_aulas_modalidade) {
+		return json_encode(['id_modalidade'=>$id_modalidade,'nm_modalidade'=>$nm_modalidade,'qt_aulas_modalidade'=>$qt_aulas_modalidade]);
 	}
 
-	// Inclui o conteúdo do Trait
 	use trait__get;
 }

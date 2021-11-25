@@ -1,0 +1,30 @@
+//CRIAR BANCO academia
+
+CREATE TABLE plano(
+id_plano INT PRIMARY KEY AUTO_INCREMENT,
+nm_plano VARCHAR(255),
+vl_plano VARCHAR(255)
+);
+
+CREATE TABLE modalidade(
+id_modalidade INT PRIMARY KEY AUTO_INCREMENT,
+nm_modalidade VARCHAR(255) NOT NULL,
+qt_aulas_modalidade VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE instrutor(
+id_instrutor INT PRIMARY KEY AUTO_INCREMENT,
+nm_instrutor VARCHAR(255) NOT NULL,
+nm_especialidade_instrutor VARCHAR(255) NOT NULL,
+modalidade_id INT,
+FOREIGN KEY (modalidade_id) REFERENCES modalidade(id_modalidade)
+);
+
+CREATE TABLE aluno(
+cd_matricula_aluno INT PRIMARY KEY AUTO_INCREMENT,
+nm_aluno VARCHAR(100) NOT NULL,
+nm_email_aluno VARCHAR(100) NOT NULL,
+cd_cpf_aluno VARCHAR(100) NOT NULL ,
+plano_id INT,
+FOREIGN KEY(plano_id) REFERENCES plano(id_plano)
+);

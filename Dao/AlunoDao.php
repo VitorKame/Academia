@@ -1,6 +1,6 @@
 <?php
 
-	const hostDb = "mysql:host=localhost;dbname=academia_teste";
+	const hostDb = "mysql:host=localhost;dbname=academia";
   	const usuario = "root";
   	const senha = "";
 
@@ -9,15 +9,7 @@
 
 		$pdo = new PDO(hostDb,usuario,senha);
 
-		$qry = "SELECT";
-		$qry .= "a.nm_aluno,";
-		$qry .= "a.nm_email_aluno,";
-		$qry .= "a.cd_cpf_aluno,";
-		$qry .= "a.cd_cpf_aluno,";
-		$qry .= "p.id_plano";
-		$qry .= "FROM";
-		$qry .= "aluno a";
-		$qry .= "JOIN plano p ON (a.plano_id = p.id_plano)";
+		$qry = "SELECT a.nm_aluno, a.nm_email_aluno, a.cd_matricula_aluno, a.cd_cpf_aluno, p.nm_plano FROM aluno a JOIN plano p ON (a.plano_id = p.id_plano)";
 
 		$cmm = $pdo->prepare($qry);
 
@@ -38,14 +30,7 @@
 
 		$pdo = new PDO(hostDb,usuario,senha);
 
-		$qry = "INSERT INTO";
-		$qry .= "aluno";
-		$qry .= "VALUES";
-		$qry .= "(NULL,";
-		$qry .= ":pnm_aluno,";
-		$qry .= ":pnm_email_aluno,";
-		$qry .= ":pcd_cpf_aluno,";
-		$qry .= ":pplano_id)";
+		$qry = "INSERT INTO aluno VALUES (NULL, :pnm_aluno, :pnm_email_aluno, :pcd_cpf_aluno, :pplano_id)";
 
 		$cmm = $pdo->prepare($qry);
 
@@ -65,15 +50,7 @@
 
 		$pdo = new PDO(hostDb,usuario,senha);
 
-		$qry = "UPDATE";
-		$qry .= "aluno";
-		$qry .= "SET";
-		$qry .= "nm_aluno = :pnm_aluno,";
-		$qry .= "nm_email_aluno = :pnm_email_aluno,";
-		$qry .= "cd_cpf_aluno = :pcd_cpf_aluno,";
-		$qry .= "plano_id = :pplano_id";
-		$qry .= "WHERE";
-		$qry .= "cd_matricula_aluno = :pcd_matricula_aluno";
+		$qry = "UPDATE aluno SET nm_aluno = :pnm_aluno, nm_email_aluno = :pnm_email_aluno, cd_cpf_aluno = :pcd_cpf_aluno, plano_id = :pplano_id WHERE cd_matricula_aluno = :pcd_matricula_aluno";
 
 		$cmm = $pdo->prepare($qry);
 
@@ -86,19 +63,13 @@
 	}
 	else if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
 	{
-		// excluir uma da tabela alunos
-
 		$json = file_get_contents("php://input");
 
-		// exclusão de aluno conforme os dados vindos no json
 		$aux = json_decode($json);  
 
 		$pdo = new PDO(hostDb,usuario,senha);
 
-		$qry = "DELETE FROM";
-		$qry .= "aluno";
-		$qry .= "WHERE";
-		$qry .= "cd_matricula_aluno = :pcd_matricula_aluno";
+		$qry = "DELETE FROM aluno WHERE cd_matricula_aluno = :pcd_matricula_aluno";
 
 		$cmm = $pdo->prepare($qry);
 

@@ -1,6 +1,6 @@
 <?php
 
-	const hostDb = "mysql:host=localhost;dbname=academia_teste";
+	const hostDb = "mysql:host=localhost;dbname=academia";
   	const usuario = "root";
   	const senha = "";
 
@@ -57,11 +57,9 @@
 	}
 	else if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
 	{
-		// excluir uma da tabela alunos
 
 		$json = file_get_contents("php://input");
 
-		// exclusão de aluno conforme os dados vindos no json
 		$aux = json_decode($json);  
 
 		$pdo = new PDO(hostDb,usuario,senha);

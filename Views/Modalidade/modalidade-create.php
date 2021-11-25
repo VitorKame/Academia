@@ -8,15 +8,19 @@
 
 <body>
 	<?php include '..\cabecalho.php'; ?>
-	<form id="form1">
-		<div class="form-group">
-			<p>Nome: <input type="text" name="nm_modalidade" required maxlength="100" class="form-control"></p>
-			<p>Aulas: <input type="text" name="qt_aulas_modalidade" required maxlength="100" class="form-control"></p>
-			<p><input type="submit" value="Salvar" class="btn btn-primary btn-small"></p>
-		</div>
-	</form>
-	<h3 id="result"></h3>
-	<?php include '..\rodape.php'; ?>
+	<div class="container">
+		<div class="col-sm-12">
+			<form id="form1">
+				<div class="form-group">
+					<p>Nome: <input type="text" name="nm_modalidade" required maxlength="100" class="form-control"></p>
+					<p>Aulas: <input type="text" name="qt_aulas_modalidade" required maxlength="100" class="form-control"></p>
+					<p><input type="submit" value="Salvar" class="btn btn-primary btn-small"></p>
+				</div>
+			</form>
+			<div class="container">
+				<div class="col-sm-12">
+					<h3 id="result"></h3>
+					<?php include '..\rodape.php'; ?>
 </body>
 
 </html>

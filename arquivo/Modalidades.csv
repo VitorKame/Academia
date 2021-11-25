@@ -1,5 +1,5 @@
-ID;NOME;VALOR
-1;Plano 1;1000
-2;Plano 2;150
-3;Plano 3;130,20
-4;Plano 4;70
+ID;NOMEMODALIDADE;QNTDAULAS
+1;Modalidade 1;5
+2;Modalidade 2;2
+3;Modalidade 3;3
+4;Modalidade 4;10

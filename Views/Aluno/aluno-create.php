@@ -29,14 +29,14 @@
 <script type="text/javascript">
 	async function carregaSelectPlanos() {
 		let resposta = await fetch('/Academia/Dao/PlanoDao.php');
-		let vetorInstrutores = await resposta.json();
+		let vetorPlanos = await resposta.json();
 		const tr = document.createElement("select");
 		tr.name = "plano_id";
-		for (let instrutor of vetorInstrutores) {
+		for (let plano of vetorPlanos) {
 
 			const td = document.createElement("option");
-			td.value = instrutor.id_plano;
-			td.textContent = instrutor.nm_plano;
+			td.value = plano.id_plano;
+			td.textContent = plano.nm_plano;
 			tr.appendChild(td);
 
 		}

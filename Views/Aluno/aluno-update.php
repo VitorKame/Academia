@@ -12,7 +12,7 @@
 	<div class="col-sm-12">
 	<form id="form1">
 		<div class="form-group">
-			<p>Matricula: <input type="text" name="cd_matricula_aluno" required maxlength="100" class="form-control"></p>
+			<p>Matricula: <input type="text" id="cd_matricula_aluno" name="cd_matricula_aluno" required maxlength="100" class="form-control" readonly></p>
 			<p>Nome: <input type="text" name="nm_aluno" required maxlength="100" class="form-control"></p>
 			<p>Email: <input type="text" name="nm_email_aluno" required maxlength="100" class="form-control"></p>
 			<p>CPF: <input type="text" name="cd_cpf_aluno" required maxlength="100" class="form-control"></p>			
@@ -51,15 +51,17 @@
 
 	async function carregaSelectPlanos() {
 		let resposta = await fetch('/Academia/Dao/PlanoDao.php');
-		let vetorPlano = await resposta.json();
-		const selectPlano = document.createElement("select");
-		selectPlano.name = "plano_id";
-		for (let plano of vetorPlano) {
-			const optionPlano = document.createElement("option");
-			optionPlano.value = instrutor.id_plano;
-			optionPlano.textContent = instrutor.nm_plano;
-			selectPlano.appendChild(optionPlano);
+		let vetorPlanos = await resposta.json();
+		const tr = document.createElement("select");
+		tr.name = "plano_id";
+		for (let plano of vetorPlanos) {
+
+			const td = document.createElement("option");
+			td.value = plano.id_plano;
+			td.textContent = plano.nm_plano;
+			tr.appendChild(td);
+
 		}
-		dados.appendChild(selectPlano);
+		dados.appendChild(tr);
 	}
 </script>

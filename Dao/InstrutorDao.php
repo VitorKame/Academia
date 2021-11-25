@@ -1,6 +1,6 @@
 <?php
 
-	const hostDb = "mysql:host=localhost;dbname=academia_teste";
+	const hostDb = "mysql:host=localhost;dbname=academia";
   	const usuario = "root";
   	const senha = "";
 

@@ -9,10 +9,14 @@
 <body>
 	<?php include '..\cabecalho.php'; ?>
 	<form id="form1">
-		<div class="form-group">
-			<p>Nome: <input type="text" name="nm_plano" required maxlength="100" class="form-control"></p>
-			<p>Valor: <input type="text" name="vl_plano" required maxlength="100" class="form-control"></p>
-			<p><input type="submit" value="Salvar" class="btn btn-primary btn-small"></p>
+		<div class="container">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<p>Nome: <input type="text" name="nm_plano" required maxlength="100" class="form-control"></p>
+					<p>Valor: <input type="text" name="vl_plano" required maxlength="100" class="form-control"></p>
+					<p><input type="submit" value="Salvar" class="btn btn-primary btn-small"></p>
+				</div>
+			</div>
 		</div>
 	</form>
 	<h3 id="result"></h3>

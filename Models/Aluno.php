@@ -1,38 +1,38 @@
 <?php
-namespace Models; // agrupamento de classes (caminho)
 
-// Classe (ou Tipo) de Objeto
-// obs.: Pessoa implementa a interface Idados, significando que implementa todos os métodos definidos pela interface.
-class Aluno implements Idados{
-	// Propriedades
-	protected $id;
-	protected $nome;
-	protected $telefone;
-	// obs.: propriedades protected são acessíveis por subclasses (extend)
+namespace Models;
 
-	// Método construtor.
-	public function __construct($id,$nome,$telefone){
-		$this->id=$id;
-		$this->nome=$nome;
-		$this->telefone=$telefone;
+class Aluno implements Idados
+{
+	protected $cd_matricula_aluno;
+	protected $nm_aluno;
+	protected $nm_email_aluno;
+	protected $cd_cpf_aluno;
+	protected $plano_id;
+
+	public function __construct($cd_matricula_aluno, $nm_aluno, $nm_email_aluno, $cd_cpf_aluno, $plano_id)
+	{
+		$this->cd_matricula_aluno  = $cd_matricula_aluno;
+		$this->nm_aluno  = $nm_aluno;
+		$this->nm_email_aluno  = $nm_email_aluno;
+		$this->cd_cpf_aluno = $cd_cpf_aluno;
+		$this->plano_id  = $plano_id;
 	}
 
-	// Método obrigatório pois é definido na interface
-	public function toString(){
-		return $this->id.' '.$this->nome.' '.$this->telefone;
+	public function toString()
+	{
+		return $this->cd_matricula_aluno  . ' ' . $this->nm_aluno  . ' ' . $this->nm_email_aluno  . ' ' . $this->cd_cpf_aluno . ' ' . $this->plano_id;
 	}
 
-	// Método obrigatório pois é definido na interface
-	public function toJson() {
-		return json_encode(['id'=>$this->id,'nome'=>$this->nome,'telefone'=>$this->telefone]);
+	public function toJson()
+	{
+		return json_encode(['cd_matricula_aluno ' => $this->cd_matricula_aluno, 'nm_aluno  ' => $this->nm_aluno, 'nm_email_aluno ' => $this->nm_email_aluno, 'cd_cpf_aluno' => $this->cd_cpf_aluno, 'plano_id ' => $this->plano_id]);
 	}
 
-	// Métodos estáticos (static) são chamados sem instanciar objetos. Utiliza-se o nome da classe seguido de quatro pontos. Exemplo a seguir.
-	// $jp = Pessoa::toJsonEstatico(20,'Maria','2222');
-	public static function toJsonEstatico ($id,$nome,$telefone) {
-		return json_encode(['id'=>$id,'nome'=>$nome,'telefone'=>$telefone]);
+	public static function toJsonEstatico($cd_matricula_aluno, $nm_aluno, $nm_email_aluno, $cd_cpf_aluno, $plano_id)
+	{
+		return json_encode(['cd_matricula_aluno ' => $cd_matricula_aluno, 'nm_aluno  ' => $nm_aluno, 'nm_email_aluno ' => $nm_email_aluno, 'cd_cpf_aluno' => $cd_cpf_aluno, 'plano_id ' => $plano_id]);
 	}
 
-	// Inclui o conteúdo do Trait
 	use trait__get;
 }
